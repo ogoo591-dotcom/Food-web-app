@@ -16,6 +16,7 @@ export const createUsers = async (req, res) => {
       createdAt: newUser.createdAt,
       updatedAt: newUser.updatedAt,
     });
+
     res.send("New user added", user);
   } catch (error) {
     res.send(error);

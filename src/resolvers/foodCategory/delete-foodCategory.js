@@ -1,11 +1,11 @@
 import { foodCategoryModel } from "../../model/foodCategory-model.js";
 
 export const deleteFoodCategory = async (req, res) => {
-  const { id } = req.body;
+  const { foodCategoryId } = req.params;
 
   try {
     const foodCategory = await foodCategoryModel.findByIdAndDelete(
-      req.body._id
+      foodCategoryId
     );
     res.send("Food category deleted successfully!", foodCategory);
   } catch (error) {

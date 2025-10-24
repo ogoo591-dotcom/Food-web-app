@@ -7,6 +7,7 @@ import { updateFoodCategory } from "../resolvers/foodCategory/update-foodCategor
 export const foodCategories = express.Router();
 
 foodCategories.get("/", getFoodCategory);
+foodCategories.get("/:foodCategoryId", getFoodCategory);
 foodCategories.post("/", createFoodCategory);
-foodCategories.put("/", updateFoodCategory);
-foodCategories.delete("/", deleteFoodCategory);
+foodCategories.put("/:foodCategoryId", updateFoodCategory);
+foodCategories.delete("/:foodCategoryId", deleteFoodCategory);
