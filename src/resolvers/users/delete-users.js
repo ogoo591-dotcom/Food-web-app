@@ -1,11 +1,14 @@
-import { userModel } from "../../model/user-model.js";
+import jwt from "jsonwebtoken";
 
-export const deleteUsers = async (req, res) => {
-  const { id } = req.body;
+export const deleteUsers = (req, res) => {
+  const token = req.headers.authorization;
+
   try {
-    const user = await userModel.findByIdAndDelete(req.body.id);
-    res.send("User deleted successfully!", user);
-  } catch (error) {
-    res.send(error);
+    jwt.verify(token, "secret-key");
+    const id = req.params._id;
+    res.send("User deleted successfully!");
+  } catch (err) {
+    console.log(err);
+    res.status(401).send("Unauthorized");
   }
 };

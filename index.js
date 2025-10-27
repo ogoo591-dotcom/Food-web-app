@@ -4,6 +4,7 @@ import { router } from "./src/routes/users.js";
 import { foods } from "./src/routes/food.js";
 import { foodOrders } from "./src/routes/foodOrder.js";
 import { foodCategories } from "./src/routes/foodCategory.js";
+import { authentication } from "./src/routes/auth.js";
 
 const app = express();
 const PORT = 1000;
@@ -14,6 +15,7 @@ app.use("/users", router);
 app.use("/food", foods);
 app.use("/foodOrder", foodOrders);
 app.use("/foodCategory", foodCategories);
+app.use("/auth", authentication);
 
 mongoose
   .connect("mongodb+srv://Otgoo4808:Otgoo4808@otgoo4808.pdxqvgz.mongodb.net/")
